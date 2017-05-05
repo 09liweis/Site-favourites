@@ -1,0 +1,7 @@
+<h1>Websites</h1>
+<% @urls.each do |url| %>
+<div>
+    <img src="<%=url.favicon%>" width="20" />
+    <h2><a href="<%=url.link%>" target="_blank"><%=url.title%></a></h2>
+</div>
+<% end %>
