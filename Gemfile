@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'metainspector'
 
-gem "react_on_rails", "~> 6"
+gem "react_on_rails", "~> 7"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
