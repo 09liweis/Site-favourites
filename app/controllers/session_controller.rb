@@ -1,11 +1,12 @@
 class SessionController < ApplicationController
     def login
+        puts params
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
             log_in user
-            redirect_to '/urls'
+            render json: {code: 200, msg: 'Login successfully'}
         else
-            render 'register'
+            render json: {code: 400, msg: 'Something Wrong'}
         end
     end
     

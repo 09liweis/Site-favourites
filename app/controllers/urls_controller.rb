@@ -1,6 +1,7 @@
 class UrlsController < ApplicationController
     def index
         @urls = Url.all
+        #Country.includes(:regions).all.map {|country| country.regions }.flatten
     end
     
     def new

@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+ 
+ * {
+     box-sizing: border-box;
+ }
+ 
+ h1,h2,h3,h4,h5,h6,
+ label{
+     font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+ }
+ 
+ a {
+     color: #237a91;
+     cursor: pointer;
+ }
+ 
+.authentication {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.form_control {
+    margin-bottom: 20px;
+}
+
+.form_control label{
+    display: block;
+    margin-bottom: 15px;
+}
+
+.form_control input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #c9c9c9;
+    font-size: 20px;
+}
+
+.form_control input:focus {
+    border: 2px solid #52bad5;
+}
+
+.form_control .btn {
+    background: #3db2d0;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}

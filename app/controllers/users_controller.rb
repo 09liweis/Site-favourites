@@ -10,9 +10,9 @@ class UsersController < ApplicationController
             password_confirmation: params[:password_confirmation]
         )
         if @user.save
-            render 'login'
+            render json: {code: 200, msg: 'Sign up successfully'}
         else
-            render 'register'
+            render json: {code: 400, msg: 'Something Wrong'}
         end
     end
     
