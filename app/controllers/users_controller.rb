@@ -16,6 +16,22 @@ class UsersController < ApplicationController
         end
     end
     
+    def profile
+        current_user = User.find_by(id: session[:user_id])
+        @urls = current_user.urls
+    end
+    
+    def add_url
+
+    end
+    
+    def remove_url
+        url = Url.find_by(id: params[:id])
+        current_user = User.find_by(id: session[:user_id])
+        current_user.urls.delete(url)
+        render json: {code: 200}
+    end
+    
     private
     
     def user_params

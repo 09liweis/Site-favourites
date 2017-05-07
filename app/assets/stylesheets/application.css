@@ -14,20 +14,73 @@
  *= require_self
  */
  
- * {
-     box-sizing: border-box;
- }
+* {
+    box-sizing: border-box;
+}
  
- h1,h2,h3,h4,h5,h6,
- label{
-     font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
- }
- 
- a {
-     color: #237a91;
-     cursor: pointer;
- }
- 
+h1,h2,h3,h4,h5,h6,
+label{
+    font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+}
+
+a {
+    color: #237a91;
+    cursor: pointer;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.url {
+    margin-bottom: 5px;
+}
+
+.favicon {
+    width: 30px;
+    height: 30px;
+}
+
+.link {
+    margin-left: 5px;
+    line-height: 30px;
+}
+
+#nav {
+    box-shadow: 0 1px 0 0 rgba(0,0,0,0.066);
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+}
+
+.menu a {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 24px;
+    color: #3a3a3a;
+}
+
+.menu a:hover {
+    background: #f9f9f9;
+}
+
 .authentication {
     max-width: 480px;
     margin: 0 auto;
@@ -35,6 +88,7 @@
 
 .form_control {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .form_control label{

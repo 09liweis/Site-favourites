@@ -8,16 +8,27 @@
   </head>
   <body>
     <header>
-      <h1>Logo</h1>
-      <nav>
-        <% if logged_in? %>
-        <a href="/logout">Logout</a>
-        <% else %>
-        <a href="/register">Login</a>
-        <% end %>
+      <nav id="nav">
+        <div class="menu f-left">
+          <!--<a href="/">-->
+          <!--  <img id="logo" src="https://cdn.iconscout.com/public/images/icon/premium/png-128/starred-web-browser-stars-screen-favourite-website-url-39e137067ef8e06a-128x128.png" alt="Logo" />-->
+          <!--</a>-->
+          <a href="/urls">Websites</a>
+          <a href="/add_url">Add Your Site</a>
+        </div>
+        <div class="menu f-right">
+          <% if logged_in? %>
+          <a href="/user"><%=current_user.email%></a>
+          <a href="/logout">Logout</a>
+          <% else %>
+          <a href="/register">Login</a>
+          <% end %>
+        </div>
+        <div class="clear"></div>
       </nav>
     </header>
+    <div class="container">
     <%= yield %>
-  
+    </div>
   </body>
 </html>

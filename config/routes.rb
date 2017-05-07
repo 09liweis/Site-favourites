@@ -11,9 +11,15 @@ Rails.application.routes.draw do
   post 'login' => 'session#login'
   get 'logout' => 'session#logout'
   
-  
+  get 'add_url' => 'users#add_url'
+
   get 'urls' => 'urls#index'
   post 'urls' => 'urls#new'
+  
+  get 'tags' => 'tags#index'
+  
+  get 'user' => 'users#profile'
+  post 'remove_url' => 'users#remove_url'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
