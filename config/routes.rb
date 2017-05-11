@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'urls' => 'urls#index'
   post 'urls' => 'urls#new'
+  get 'get_info_with_url' => 'urls#get_info_with_url'
   
   get 'tags' => 'tags#index'
   

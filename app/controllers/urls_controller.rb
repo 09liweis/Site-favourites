@@ -8,13 +8,18 @@ class UrlsController < ApplicationController
         @urls = Url.all
     end
     
-    def new
+    def get_info_with_url
         website = params[:link]
         page = MetaInspector.new(website)
+        url = { title: page.title, favicon: page.images.favicon }
+        render json: {code: 200, url: url}
+    end
+    
+    def new
         url = Url.new(
-            title: page.title,
-            favicon: page.images.favicon,
-            link: website
+            title: params[:title],
+            favicon: params[:favicon],
+            link: params[:link]
         )
         if url.save
             current_user = User.find_by(id: session[:user_id])

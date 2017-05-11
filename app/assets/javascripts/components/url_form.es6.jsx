@@ -11,12 +11,34 @@ class UrlForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.addTag = this.addTag.bind(this);
+    this.getSiteInfo = this.getSiteInfo.bind(this);
+  }
+  componentDidMount() {
+    this.linkText.focus();
   }
   handleChange(e) {
     var value = e.target.value;
     var property = e.target.name;
+    if (property == 'link') {
+      this.getSiteInfo(value);
+    }
     this.setState({
       [property]: value
+    });
+  }
+  getSiteInfo(link) {
+    var _this = this;
+    $.ajax({
+      url: '/get_info_with_url',
+      data: {link: link},
+      success(result) {
+        if (result.code == 200) {
+          _this.setState({
+            title: result.url.title,
+            favicon: result.url.favicon
+          });
+        }
+      }
     });
   }
   handleTagSearch(e) {
@@ -77,11 +99,23 @@ class UrlForm extends React.Component {
         <h1>Add Your Site</h1>
         <div className="form_control">
           <label>Enter Your Favourite</label>
-          <input type="text" name="link" value={this.state.link} onChange={this.handleChange} />
+          <input 
+            type="text" 
+            name="link" 
+            autoFocus 
+            value={this.state.link} 
+            onChange={this.handleChange} 
+            ref={(input) => { this.linkText = input; }} 
+          />
         </div>
         <div className="form_control">
           <label>Tags</label>
-          <input type="text" name="tag" onKeyPress={this.handleKeyPress.bind(this)} onChange={this.handleTagSearch.bind(this)}/>
+          <input 
+            type="text" 
+            name="tag" 
+            onKeyPress={this.handleKeyPress.bind(this)} 
+            onChange={this.handleTagSearch.bind(this)}
+          />
           <div className="search_list">
             {tagsResult}
           </div>
