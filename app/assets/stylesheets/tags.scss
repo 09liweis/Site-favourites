@@ -3,5 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tag {
-    
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: capitalize;
+    background: #52bad5;
+    padding: 10px;
+    line-height: 1.75;
+    font-size: 14px;
+    display: inline-block;
+    color: #FFFFFF;
+    margin-right: 5px;
 }

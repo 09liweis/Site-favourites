@@ -5,12 +5,15 @@ class Tags extends React.Component {
       tags: this.props.tags
     };
   }
+  
   render () {
     const tags = this.state.tags.map((t) => 
-      <Tag key={t.id} tag={t} filterByTag={this.props.filterByTag} />
+      <div className="tag" key={t.id} onClick={this.props.filterByTag.bind(this, t.id)}>{t.name}</div>
     );
     return (
       <div id="tags" className="f-left">
+        <h2>Tags</h2>
+        <div className="tag" onClick={this.props.filterByTag.bind(this, 'all')}>All</div>
         {tags}
       </div>
     );

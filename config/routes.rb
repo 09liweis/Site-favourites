@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'get_info_with_url' => 'urls#get_info_with_url'
   
   get 'tags' => 'tags#index'
+  get 'url/tag/:id' => 'tags#get_urls_by_tag'
   
   get 'user' => 'users#profile'
   post 'remove_url' => 'users#remove_url'
