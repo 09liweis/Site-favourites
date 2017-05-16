@@ -17,6 +17,10 @@
 * {
     box-sizing: border-box;
 }
+
+body {
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
  
 h1,h2,h3,h4,h5,h6,
 label{
@@ -26,6 +30,12 @@ label{
 a {
     color: #237a91;
     cursor: pointer;
+}
+
+.btn {
+    background: #3db2d0;
+    color: #ffffff;
+    padding: 0 5px;
 }
 
 .f-left {
@@ -112,4 +122,24 @@ a {
     color: #ffffff;
     border: none;
     cursor: pointer;
+}
+
+#urls {
+    width: 70%;
+}
+
+#tags {
+    width: 30%;
+}
+
+.tag {
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: capitalize;
+    background: #52bad5;
+    padding: 10px;
+    line-height: 1.75;
+    font-size: 14px;
+    display: inline-block;
+    color: #FFFFFF;
 }

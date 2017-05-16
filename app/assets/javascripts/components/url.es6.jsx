@@ -9,13 +9,13 @@ class Url extends React.Component {
     let url = this.state.url;
     let action;
     if (this.props.page == 'profile') {
-      action = 'Remove';
+      action = <a className="f-left link btn" onClick={this.props.handleUrl.bind(this, url)}>Remove</a>;
     }
     return (
       <div className="url">
         <img className="f-left favicon" src={url.favicon} />
         <a className="f-left link" target="_blank" href={url.link}>{url.title}</a>
-        <a className="f-left link" onClick={this.props.handleUrl.bind(this, url)}>{action}</a>
+        {action}
         <div className="clear"></div>
       </div>
     );

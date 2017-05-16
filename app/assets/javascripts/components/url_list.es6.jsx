@@ -28,7 +28,7 @@ class UrlList extends React.Component {
       <Url key={url.id} url={url} handleUrl={this.handleUrl} page={this.props.page} />
     );
     return (
-      <div>
+      <div id="urls" className="f-left">
         {urls}
       </div>
     );

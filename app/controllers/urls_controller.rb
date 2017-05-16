@@ -6,6 +6,7 @@ class UrlsController < ApplicationController
             @urls = Url.all
         end
         @urls = Url.all
+        @tags = Tag.all
     end
     
     def get_info_with_url
