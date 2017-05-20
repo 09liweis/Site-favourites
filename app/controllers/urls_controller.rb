@@ -1,14 +1,26 @@
 class UrlsController < ApplicationController
+    # go to urls page
     def index
-        if (session[:user_id])
-            #@urls = Url.includes(:Urls_Users).where("Urls_Users.user_id = ?", session[:user_id])
-        else
-            @urls = Url.all
-        end
-        @urls = Url.all
-        @tags = Tag.all
     end
     
+    
+    # go to add url page
+    def add_url
+    end
+    
+    
+    # rest list of urls
+    def list
+        if (session[:user_id])
+            #
+        else
+            #
+        end
+        urls = Url.all
+        render json: {code: 200, urls: urls}
+    end
+    
+    # get website info with url
     def get_info_with_url
         website = params[:link]
         page = MetaInspector.new(website)
@@ -16,6 +28,7 @@ class UrlsController < ApplicationController
         render json: {code: 200, url: url}
     end
     
+    # add new url
     def new
         url = Url.new(
             title: params[:title],
@@ -31,6 +44,19 @@ class UrlsController < ApplicationController
         end
     end
     
-    def add_url
+    # add tag to url
+    def add_tag
+        url = Url.find_by(id: params[:id])
+        tag = Tag.find_by(name: params[:tag])
+        if tag
+            # if not url.tags.where(:tag_id => tag.id).any?
+            #     url.tags << tag
+            # end
+            url.tags << tag
+        else
+            tag = Tag.new(name: params[:tag])
+            url.tags << tag
+        end
+        render json: {code: 200, tags: url.tags}
     end
 end

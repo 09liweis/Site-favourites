@@ -14,7 +14,8 @@ class Url extends React.Component {
     return (
       <div className="url">
         <img className="f-left favicon" src={url.favicon} />
-        <a className="f-left link" target="_blank" href={url.link}>{url.title}</a>
+        <a className="f-left link" onClick={this.props.displayDetail.bind(this, url)}>{url.title}</a>
+        <a className="f-left link" href={url.link} target="_blank">Open Link</a>
         {action}
         <div className="clear"></div>
       </div>

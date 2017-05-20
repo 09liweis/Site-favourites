@@ -5,6 +5,11 @@ class Tags extends React.Component {
       tags: this.props.tags
     };
   }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      tags: nextProps.tags
+    });
+  }
   
   render () {
     const tags = this.state.tags.map((t) => 

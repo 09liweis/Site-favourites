@@ -15,13 +15,22 @@ Rails.application.routes.draw do
 
   get 'urls' => 'urls#index'
   post 'urls' => 'urls#new'
-  get 'get_info_with_url' => 'urls#get_info_with_url'
-  
-  get 'tags' => 'tags#index'
-  get 'url/tag/:id' => 'tags#get_urls_by_tag'
   
   get 'user' => 'users#profile'
+  
+  
+  #rest
+  get 'urls_list' => 'urls#list'
+  get 'get_info_with_url' => 'urls#get_info_with_url'
+  
+  get 'tags_list' => 'tags#list'
+  get 'tags' => 'tags#index'
+  get 'url/:id/tags' => 'tags#get_tags_by_url'
+  get 'url/tag/:id' => 'tags#get_urls_by_tag'
+  
+  post 'url/:id/add_tag' => 'urls#add_tag'
   post 'remove_url' => 'users#remove_url'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
