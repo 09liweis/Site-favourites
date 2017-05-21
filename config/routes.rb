@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   
   
   #rest
+  get 'user_urls' => 'users#urls'
   get 'urls_list' => 'urls#list'
   get 'get_info_with_url' => 'urls#get_info_with_url'
   

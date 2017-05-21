@@ -17,8 +17,13 @@ class UsersController < ApplicationController
     end
     
     def profile
+        
+    end
+    
+    def urls
         current_user = User.find_by(id: session[:user_id])
-        @urls = current_user.urls
+        urls = current_user.urls
+        render json: {code: 200, urls: urls}
     end
     
     def add_url

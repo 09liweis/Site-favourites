@@ -49,10 +49,9 @@ class UrlsController < ApplicationController
         url = Url.find_by(id: params[:id])
         tag = Tag.find_by(name: params[:tag])
         if tag
-            # if not url.tags.where(:tag_id => tag.id).any?
-            #     url.tags << tag
-            # end
-            url.tags << tag
+            if not url.tags.where(:tag_id => tag.id).any?
+                url.tags << tag
+            end
         else
             tag = Tag.new(name: params[:tag])
             url.tags << tag
