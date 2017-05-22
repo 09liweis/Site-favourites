@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   
   get 'add_url' => 'users#add_url'
 
-  get 'urls' => 'urls#index'
   post 'urls' => 'urls#new'
   
   get 'user' => 'users#profile'

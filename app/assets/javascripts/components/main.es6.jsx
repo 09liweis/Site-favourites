@@ -34,12 +34,15 @@ class Main extends React.Component {
     });
   }
   displayDetail(url) {
+    window.history.pushState({}, "", '/url/' + url.id);
     this.setState({
       detailUrl: url,
       modalOpen: true
     });
+    //console.log(window.location);
   }
   closeModal() {
+    window.history.pushState({}, "", '/');
     this.setState({
       detailUrl: {},
       modalOpen: false

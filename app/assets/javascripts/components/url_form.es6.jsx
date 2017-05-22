@@ -83,7 +83,7 @@ class UrlForm extends React.Component {
       data: this.state,
       success(result) {
         if (result.code == 200) {
-          window.location = '/urls';
+          window.location = '/';
         } else {
           alert(result.msg);
         }

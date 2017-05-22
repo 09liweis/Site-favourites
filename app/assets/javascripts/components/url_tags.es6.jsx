@@ -21,6 +21,9 @@ class UrlTags extends React.Component {
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       this.props.addTag(this.state.tag);
+      this.setState({
+        tag: ''
+      });
     }
   }
   render () {

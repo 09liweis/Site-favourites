@@ -25,7 +25,7 @@ class Authentication extends React.Component {
       data: this.state,
       success(result) {
         if (result.code == 200) {
-          window.location = '/urls';
+          window.location = '/';
         } else {
           alert(result.msg);
         }
@@ -74,7 +74,7 @@ class Authentication extends React.Component {
       view = (
       <form onSubmit={this.handleSignUp.bind(this)}>
         <h1>Create a free account</h1>
-        <p>Already have a MailChimp account? <a onClick={() => this.setState({view: 'login'})}>Log in here</a></p>
+        <p>Already have an account? <a onClick={() => this.setState({view: 'login'})}>Log in here</a></p>
         <div className="form_control">
           <label>Email</label>
           <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
