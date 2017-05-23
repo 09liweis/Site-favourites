@@ -50,6 +50,7 @@ class UrlDetail extends React.Component {
         </div>
         <div className="modal">
           <h1>{url.title}</h1>
+          <button className="favourite">Favourite</button>
           <UrlTags tags={this.state.tags} addTag={this.addTag} />
         </div>
       </div>

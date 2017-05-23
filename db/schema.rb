@@ -11,23 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506221015) do
+ActiveRecord::Schema.define(version: 20170523145742) do
 
-  create_table "Tags_Urls", id: false, force: :cascade do |t|
-    t.integer "url_id", null: false
-    t.integer "tag_id", null: false
-  end
-
-  add_index "Tags_Urls", ["tag_id", "url_id"], name: "index_Tags_Urls_on_tag_id_and_url_id"
-  add_index "Tags_Urls", ["url_id", "tag_id"], name: "index_Tags_Urls_on_url_id_and_tag_id"
-
-  create_table "Urls_Users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "url_id",  null: false
-  end
-
-  add_index "Urls_Users", ["url_id", "user_id"], name: "index_Urls_Users_on_url_id_and_user_id"
-  add_index "Urls_Users", ["user_id", "url_id"], name: "index_Urls_Users_on_user_id_and_url_id"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -36,9 +23,17 @@ ActiveRecord::Schema.define(version: 20170506221015) do
   end
 
   create_table "urls", force: :cascade do |t|
+    t.integer  "owner_id"
     t.string   "title"
     t.string   "link"
     t.string   "favicon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "urltags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "url_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +43,13 @@ ActiveRecord::Schema.define(version: 20170506221015) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "userurls", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "url_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -16,7 +16,7 @@
 .modal {
     position: fixed;
     max-width: 50%;
-    height: 300px;
+    min-height: 300px;
     margin: auto;
     top: 0;
     left: 0;
@@ -27,4 +27,12 @@
     border: 1px solid #52bad5;
     padding: 20px;
     transition: all 0.5s linear;
+}
+
+.favourite {
+    border: none;
+    background: #ff9800;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 5px;
 }

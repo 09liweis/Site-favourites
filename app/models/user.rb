@@ -6,5 +6,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
     has_secure_password
     
-    has_and_belongs_to_many :urls
+    has_many :owned_urls, class_name: 'Url', foreign_key: :owner_id
+    
+    has_many :urls, :through => :userurls
+    has_many :userurls
 end

@@ -35,9 +35,22 @@ class UrlsController < ApplicationController
             favicon: params[:favicon],
             link: params[:link]
         )
+        tags = params[:tags]
+        if tags
+            tags.each do |t|
+                tag = Tag.find_by(name: t)
+                if tag
+                    url.tags << tag
+                else
+                    tag = Tag.new(name: t)
+                    url.tags << tag
+                end
+            end
+        end
+
         if url.save
             current_user = User.find_by(id: session[:user_id])
-            current_user.urls << url
+            current_user.owned_urls << url
             render json: {code: 200, msg: 'Added successfully'}
         else
             render json: {code: 400, msg: 'Fail'}
@@ -49,6 +62,7 @@ class UrlsController < ApplicationController
         url = Url.find_by(id: params[:id])
         tag = Tag.find_by(name: params[:tag])
         if tag
+            ## TODO: handle tag with url in backend
             # if not url.tags.where(:tag_id => tag.id).any?
             #     url.tags << tag
             # end

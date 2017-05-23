@@ -1,4 +1,9 @@
 class Url < ActiveRecord::Base
-    has_and_belongs_to_many :tags
-    has_and_belongs_to_many :users
+    has_many :user, :through => :userurls
+    has_many :userurls
+    
+    has_many :tags, :through => :urltags
+    has_many :urltags
+    
+    belongs_to :owner, class_name: 'User', foreign_key: :owner_id
 end
