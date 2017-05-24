@@ -20,7 +20,18 @@ class UrlsController < ApplicationController
         render json: {code: 200, urls: urls}
     end
     
-    # get website info with url
+    # get url detail
+    def detail
+        url = Url.find_by(id: params[:id])
+        owner = false
+        tags = url.tags
+        if url.owner_id == session[:user_id]
+            owner = true
+        end
+        render json: {code: 200, url: url, owner: owner, tags: tags}
+    end
+    
+    # get website info with input url
     def get_info_with_url
         website = params[:link]
         page = MetaInspector.new(website)
@@ -72,5 +83,20 @@ class UrlsController < ApplicationController
             url.tags << tag
         end
         render json: {code: 200, tags: url.tags}
+    end
+    
+    # favourite or unfavourite url
+    def favourite
+        url_id = params[:id]
+        url = Url.find_by(id: url_id)
+        current_user = User.find_by(id: session[:user_id])
+        if current_user.urls.exists?(url_id)
+            current_user.urls.delete(url)
+            favourite = false
+        else
+            current_user.urls << url
+            favourite = true
+        end
+        render json: {code: 200, favourite: favourite}
     end
 end

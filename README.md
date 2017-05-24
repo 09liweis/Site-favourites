@@ -9,3 +9,6 @@ Rake
 rake db:drop:all
 rake db:create:all
 rake db:migrate
+
+push to heroku:
+heroku run rake db:migrate

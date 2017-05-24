@@ -25,11 +25,14 @@ Rails.application.routes.draw do
   
   get 'tags_list' => 'tags#list'
   get 'tags' => 'tags#index'
+  get 'url/:id' => 'urls#detail'
   get 'url/:id/tags' => 'tags#get_tags_by_url'
   get 'url/tag/:id' => 'tags#get_urls_by_tag'
   
   post 'url/:id/add_tag' => 'urls#add_tag'
   post 'remove_url' => 'users#remove_url'
+  
+  post 'url/:id/favourite' => 'urls#favourite'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
