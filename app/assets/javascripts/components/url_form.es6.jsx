@@ -11,6 +11,7 @@ class UrlForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.addTag = this.addTag.bind(this);
+    this.unselectTag = this.unselectTag.bind(this);
     this.getSiteInfo = this.getSiteInfo.bind(this);
   }
   componentDidMount() {
@@ -43,34 +44,54 @@ class UrlForm extends React.Component {
   }
   handleTagSearch(e) {
     var value = e.target.value;
-    var _this = this;
-    $.ajax({
-      url: '/tags',
-      method: 'GET',
-      data: {keyword: value},
-      success(result) {
-        if (result.code == 200) {
-          _this.setState({
-            searchTags: result.tags
-          });
+    if (value !== '') {
+      var _this = this;
+      $.ajax({
+        url: '/tags',
+        method: 'GET',
+        data: {keyword: value},
+        success(result) {
+          if (result.code == 200) {
+            _this.setState({
+              searchTags: result.tags
+            });
+          }
         }
-      }
-    });
+      }); 
+    } else {
+      this.setState({
+        searchTags: []
+      });
+    }
   }
   handleKeyPress(e) {
     if (e.key == 'Enter') {
-      this.addTag(e.target.value);
+      var tag = e.target.value;
+      if (tag !== '') {
+        this.addTag(tag);
+      }
     }
+    return false;
   }
   selectTag(tag) {
     this.addTag(tag.name);
   }
-  addTag(tag) {
+  unselectTag(tag) {
     var tags = this.state.tags;
-    tags.push(tag);
+    var index = tags.indexOf(tag);
+    tags.splice(index, 1);
     this.setState({
       tags: tags
     });
+  }
+  addTag(tag) {
+    var tags = this.state.tags;
+    if (tags.indexOf(tag) == -1) {
+      tags.push(tag);
+      this.setState({
+        tags: tags
+      });
+    }
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -91,8 +112,11 @@ class UrlForm extends React.Component {
     });
   }
   render () {
+    let selectedTags = this.state.tags.map((tag, index) => 
+      <a className="tag" onClick={this.unselectTag.bind(this, tag)} key={index}>{tag}</a>
+    );
     let tagsResult = this.state.searchTags.map((tag) => 
-      <a onClick={this.selectTag.bind(this, tag)} key={tag.id}>{tag.name}</a>
+      <a className="tag" onClick={this.selectTag.bind(this, tag)} key={tag.id}>{tag.name}</a>
     );
     return (
       <form className="authentication" onSubmit={this.handleSubmit}>
@@ -110,6 +134,7 @@ class UrlForm extends React.Component {
         </div>
         <div className="form_control">
           <label>Tags</label>
+          Selected Tags: {selectedTags}
           <input 
             type="text" 
             name="tag" 
