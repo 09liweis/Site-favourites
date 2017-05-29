@@ -63,9 +63,8 @@ class Main extends React.Component {
   render () {
     return (
       <div>
-        <UrlList urls={this.state.urls} displayDetail={this.displayDetail} page={this.props.page} />
         <Tags tags={this.state.tags} filterByTag={this.filterByTag.bind(this)} />
-        <div className="clear"></div>
+        <UrlList urls={this.state.urls} displayDetail={this.displayDetail} />
         { (this.state.modalOpen) ? <UrlDetail url={this.state.detailUrl} closeModal={this.closeModal} /> : ''}
       </div>
     );

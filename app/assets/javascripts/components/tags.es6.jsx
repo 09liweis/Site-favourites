@@ -16,7 +16,7 @@ class Tags extends React.Component {
       <div className="tag" key={t.id} onClick={this.props.filterByTag.bind(this, t.id)}>{t.name}</div>
     );
     return (
-      <div id="tags" className="f-left">
+      <div id="tags">
         <h2>Tags</h2>
         <div className="tag" onClick={this.props.filterByTag.bind(this, 'all')}>All</div>
         {tags}
