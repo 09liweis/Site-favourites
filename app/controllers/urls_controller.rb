@@ -27,8 +27,15 @@ class UrlsController < ApplicationController
         tags = url.tags
         if url.owner_id == session[:user_id]
             owner = true
+        else
+            user = User.find_by(id: session[:user_id])
+            if (user.urls.exists?(url.id))
+                favourite = true
+            else
+                favourite = false
+            end
         end
-        render json: {code: 200, url: url, owner: owner, tags: tags}
+        render json: {code: 200, url: url, owner: owner, tags: tags, favourite: favourite}
     end
     
     # get website info with input url
