@@ -17,11 +17,16 @@ class UsersController < ApplicationController
     end
     
     def profile
-        current_user = User.find_by(id: session[:user_id])
-        @urls = current_user.urls
     end
     
     def urls
+        current_user = User.find_by(id: session[:user_id])
+        puts current_user
+        urls = current_user.owned_urls
+        render json: {code: 200, urls: urls}
+    end
+    
+    def favourites
         current_user = User.find_by(id: session[:user_id])
         urls = current_user.urls
         render json: {code: 200, urls: urls}

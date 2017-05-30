@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   
   
   #rest
-  get 'user_urls' => 'users#urls'
+  get 'user_owned' => 'users#urls'
+  get 'user_favourites' => 'users#favourites'
   get 'urls_list' => 'urls#list'
   get 'get_info_with_url' => 'urls#get_info_with_url'
   

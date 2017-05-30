@@ -8,7 +8,6 @@ class UrlDetail extends React.Component {
     };
     this.keyPress = this.keyPress.bind(this);
     this.addTag = this.addTag.bind(this);
-    this.favourite = this.favourite.bind(this);
   }
   componentDidMount() {
     const _this = this;
@@ -24,13 +23,14 @@ class UrlDetail extends React.Component {
     });
   }
   favourite(url) {
-    $.ajax({
-      url: '/url/' + url.id + '/favourite',
-      method: 'POST',
-      success(res) {
-        console.log(res);
-      }
-    });
+    console.log('favourite');
+    // $.ajax({
+    //   url: '/url/' + url.id + '/favourite',
+    //   method: 'POST',
+    //   success(res) {
+    //     console.log(res);
+    //   }
+    // });
   }
   addTag(tag) {
     for (var i = 0; i < this.state.tags.length; i++) {
@@ -56,17 +56,14 @@ class UrlDetail extends React.Component {
   }
   render () {
     const url = this.state.url;
-    var favourite = '';
-    if (this.state.owner === false) {
-      favourite = <button className="favourite" onClick={this.favourite(url)}>Favourite</button>;
-    }
+
     return (
       <div className="detail">
         <div className="modal-bg" onKeyPress={this.keyPress} onClick={this.props.closeModal}>
         </div>
         <div className="modal">
           <h1>{url.title}</h1>
-          {favourite}
+          {this.state.owner == false ? <button className="favourite" onClick={this.favourite.bind(this, url)}>Favourite</button> : ''}
           <UrlTags tags={this.state.tags} addTag={this.addTag} />
         </div>
       </div>
