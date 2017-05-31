@@ -16,9 +16,6 @@ class UsersController < ApplicationController
         end
     end
     
-    def profile
-    end
-    
     def urls
         current_user = User.find_by(id: session[:user_id])
         puts current_user

@@ -38,9 +38,9 @@ class UserProfile extends React.Component {
     return (
       <div>
         <h1>User Profile</h1>
-        <nav>
-          <a onClick={this.changeView.bind(this, 'owned')}>My Urls</a>
-          <a onClick={this.changeView.bind(this, 'favourites')}>My Favourites</a>
+        <nav className="nav block">
+          <a onClick={this.changeView.bind(this, 'owned')}><i className="fa fa-user fa-fw" aria-hidden="true"></i> My Urls</a>
+          <a onClick={this.changeView.bind(this, 'favourites')}><i className="fa fa-star fa-fw" aria-hidden="true"></i> My Favourites</a>
         </nav>
         {(this.state.view == 'owned') ? 
         <UrlList urls={this.state.ownUrls} displayDetail={this.props.displayDetail} />

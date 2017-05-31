@@ -25,17 +25,22 @@ class UrlsController < ApplicationController
         url = Url.find_by(id: params[:id])
         owner = false
         tags = url.tags
-        if url.owner_id == session[:user_id]
-            owner = true
+
+        if session[:user_id] == nil
+            render json: {code: 200, url: url, tags: tags, owner: false, favourite: false}
         else
-            user = User.find_by(id: session[:user_id])
-            if (user.urls.exists?(url.id))
-                favourite = true
+            if url.owner_id == session[:user_id]
+                owner = true
             else
-                favourite = false
+                user = User.find_by(id: session[:user_id])
+                if (user.urls.exists?(url.id))
+                    favourite = true
+                else
+                    favourite = false
+                end
             end
+            render json: {code: 200, url: url, owner: owner, tags: tags, favourite: favourite}
         end
-        render json: {code: 200, url: url, owner: owner, tags: tags, favourite: favourite}
     end
     
     # get website info with input url
@@ -94,16 +99,20 @@ class UrlsController < ApplicationController
     
     # favourite or unfavourite url
     def favourite
-        url_id = params[:id]
-        url = Url.find_by(id: url_id)
-        current_user = User.find_by(id: session[:user_id])
-        if current_user.urls.exists?(url_id)
-            current_user.urls.delete(url)
-            favourite = false
+        if session[:user_id] == nil
+            render json: {code: 401}
         else
-            current_user.urls << url
-            favourite = true
+            url_id = params[:id]
+            url = Url.find_by(id: url_id)
+            current_user = User.find_by(id: session[:user_id])
+            if current_user.urls.exists?(url_id)
+                current_user.urls.delete(url)
+                favourite = false
+            else
+                current_user.urls << url
+                favourite = true
+            end
+            render json: {code: 200, favourite: favourite}
         end
-        render json: {code: 200, favourite: favourite}
     end
 end

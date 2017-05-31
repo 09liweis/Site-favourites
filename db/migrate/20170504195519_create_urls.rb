@@ -6,6 +6,7 @@ class CreateUrls < ActiveRecord::Migration
       t.string :title
       t.string :link
       t.string :favicon
+      t.integer :view_count
 
       t.timestamps null: false
     end

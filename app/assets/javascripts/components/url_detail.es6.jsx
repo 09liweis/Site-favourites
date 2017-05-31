@@ -30,9 +30,13 @@ class UrlDetail extends React.Component {
       url: '/url/' + url.id + '/favourite',
       method: 'POST',
       success(res) {
-        _this.setState({
-          favourite: res.favourite
-        });
+        if (res.code == 401) {
+          alert('You are not Logined');
+        } else {
+          _this.setState({
+            favourite: res.favourite
+          }); 
+        }
       }
     });
   }

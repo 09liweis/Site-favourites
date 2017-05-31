@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Favourite Your Site</title>
+    <script src="https://use.fontawesome.com/f139cd3ffe.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%#= favicon_link_tag 'http://www.iconsdb.com/icons/preview/caribbean-blue/star-8-xxl.png' %>
@@ -19,7 +20,7 @@
         </div>
         <div class="menu f-right">
           <% if logged_in? %>
-          <a href="/user"><%=current_user.email%></a>
+          <a><%=current_user.email%></a>
           <a href="/logout">Logout</a>
           <% else %>
           <a href="/register">Login</a>

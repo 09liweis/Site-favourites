@@ -37,9 +37,9 @@ class App extends React.Component {
   render () {
     return(
       <div id="app">
-        <nav>
-          <a onClick={this.changeView.bind(this, 'main')}>Website</a>
-          <a onClick={this.changeView.bind(this, 'user')}>User Profile</a>
+        <nav className="nav block">
+          <a className={(this.state.view == 'main' ? 'selected' : '')} onClick={this.changeView.bind(this, 'main')}><i className="fa fa-home fa-fw" aria-hidden="true"></i> Website</a>
+          <a className={(this.state.view == 'user' ? 'selected' : '')} onClick={this.changeView.bind(this, 'user')}><i className="fa fa-user fa-fw" aria-hidden="true"></i> User Profile</a>
         </nav>
         {this.state.view == 'main' ? <Main displayDetail={this.displayDetail} /> : '' }
         {this.state.view == 'user' ? <UserProfile displayDetail={this.displayDetail} /> : '' }

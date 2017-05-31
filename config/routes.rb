@@ -15,9 +15,6 @@ Rails.application.routes.draw do
 
   post 'urls' => 'urls#new'
   
-  get 'user' => 'users#profile'
-  
-  
   #rest
   get 'user_owned' => 'users#urls'
   get 'user_favourites' => 'users#favourites'

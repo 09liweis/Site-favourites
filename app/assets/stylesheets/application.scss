@@ -13,12 +13,13 @@
  *= require_tree .
  *= require_self
  */
- 
+
 * {
     box-sizing: border-box;
 }
 
 body {
+    background: #f4f5f7;
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
@@ -32,6 +33,10 @@ label{
 a {
     color: #237a91;
     cursor: pointer;
+}
+
+a.selected {
+    border-bottom: 1px solid #00a1d6;
 }
 
 .btn {
@@ -50,6 +55,14 @@ a {
 
 .clear {
     clear: both;
+}
+
+.block {
+    box-shadow: 0 0 0 1px #eee;
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 10px;
 }
 
 .container {
@@ -124,4 +137,9 @@ a {
     color: #ffffff;
     border: none;
     cursor: pointer;
+}
+
+.nav a {
+    padding: 10px 0;
+    margin: 0 10px;
 }
