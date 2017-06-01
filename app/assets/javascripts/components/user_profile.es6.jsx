@@ -13,6 +13,10 @@ class UserProfile extends React.Component {
       url: '/user_owned',
       method: 'GET',
       success(res) {
+        if (res.code == 401) {
+          alert(res.msg);
+          return;
+        }
         _this.setState({
           ownUrls: res.urls
         });
@@ -23,6 +27,10 @@ class UserProfile extends React.Component {
       url: '/user_favourites',
       method: 'GET',
       success(res) {
+        if (res.code == 401) {
+          alert(res.msg);
+          return;
+        }
         _this.setState({
           favourites: res.urls
         });

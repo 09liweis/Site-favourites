@@ -1,6 +1,11 @@
 class UrlsController < ApplicationController
     # go to urls page
     def index
+        if session[:user_id] == nil
+            @authenticated = false
+        else
+            @authenticated = true
+        end
     end
     
     

@@ -17,16 +17,24 @@ class UsersController < ApplicationController
     end
     
     def urls
-        current_user = User.find_by(id: session[:user_id])
-        puts current_user
-        urls = current_user.owned_urls
-        render json: {code: 200, urls: urls}
+        if session[:user_id] == nil
+            render json: {code: 401, msg: 'You need to Login'}
+        else
+            current_user = User.find_by(id: session[:user_id])
+            puts current_user
+            urls = current_user.owned_urls
+            render json: {code: 200, urls: urls}
+        end
     end
     
     def favourites
-        current_user = User.find_by(id: session[:user_id])
-        urls = current_user.urls
-        render json: {code: 200, urls: urls}
+        if session[:user_id] == nil
+            render json: {code: 401, msg: 'You need to login'}
+        else
+            current_user = User.find_by(id: session[:user_id])
+            urls = current_user.urls
+            render json: {code: 200, urls: urls}
+        end
     end
     
     def add_url

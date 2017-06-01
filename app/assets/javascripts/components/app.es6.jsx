@@ -1,10 +1,10 @@
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       view: 'main',
       detailUrl: {},
-      modalOpen: false
+      modalOpen: false,
     };
     this.displayDetail = this.displayDetail.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -39,9 +39,20 @@ class App extends React.Component {
       <div id="app">
         <nav className="nav block">
           <a className={(this.state.view == 'main' ? 'selected' : '')} onClick={this.changeView.bind(this, 'main')}><i className="fa fa-home fa-fw" aria-hidden="true"></i> Website</a>
-          <a className={(this.state.view == 'user' ? 'selected' : '')} onClick={this.changeView.bind(this, 'user')}><i className="fa fa-user fa-fw" aria-hidden="true"></i> User Profile</a>
+          {(this.props.authenticated == false) ?
+          <a className={(this.state.view == 'login' ? 'selected' : '')} 
+              onClick={this.changeView.bind(this, 'login')}>
+            <i className="fa fa-user fa-fw" aria-hidden="true"></i>Login
+          </a>
+          :
+          <a className={(this.state.view == 'user' ? 'selected' : '')} 
+              onClick={this.changeView.bind(this, 'user')}>
+            <i className="fa fa-user fa-fw" aria-hidden="true"></i> User Profile
+          </a>
+          }
         </nav>
         {this.state.view == 'main' ? <Main displayDetail={this.displayDetail} /> : '' }
+        {this.state.view == 'login' ? <Authentication /> : ''}
         {this.state.view == 'user' ? <UserProfile displayDetail={this.displayDetail} /> : '' }
         { (this.state.modalOpen) ? <UrlDetail url={this.state.detailUrl} closeModal={this.closeModal} /> : ''}
       </div>
