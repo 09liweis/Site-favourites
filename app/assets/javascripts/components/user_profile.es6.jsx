@@ -49,6 +49,7 @@ class UserProfile extends React.Component {
         <nav className="nav block">
           <a onClick={this.changeView.bind(this, 'owned')}><i className="fa fa-user fa-fw" aria-hidden="true"></i> My Urls</a>
           <a onClick={this.changeView.bind(this, 'favourites')}><i className="fa fa-star fa-fw" aria-hidden="true"></i> My Favourites</a>
+          <a onClick={this.changeView.bind(this, 'add_new')}><i className="fa fa-star fa-fw" aria-hidden="true"></i> Add New</a>
         </nav>
         {(this.state.view == 'owned') ? 
         <UrlList urls={this.state.ownUrls} displayDetail={this.props.displayDetail} />
@@ -56,6 +57,10 @@ class UserProfile extends React.Component {
         
         {(this.state.view == 'favourites') ? 
         <UrlList urls={this.state.favourites} displayDetail={this.props.displayDetail} />
+        : '' }
+        
+        {(this.state.view == 'add_new') ? 
+        <UrlForm />
         : '' }
         
       </div>
