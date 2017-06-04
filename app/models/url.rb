@@ -1,5 +1,5 @@
 class Url < ActiveRecord::Base
-    has_many :user, :through => :userurls
+    has_many :users, :through => :userurls
     has_many :userurls
     
     has_many :tags, :through => :urltags

@@ -30,12 +30,14 @@ class UrlsController < ApplicationController
         url = Url.find_by(id: params[:id])
         owner = false
         tags = url.tags
+        users = url.users
 
         if session[:user_id] == nil
-            render json: {code: 200, url: url, tags: tags, owner: false, favourite: false}
+            render json: {code: 200, url: url, tags: tags, owner: false, favourite: false, users: users}
         else
             if url.owner_id == session[:user_id]
                 owner = true
+                favourite = false
             else
                 user = User.find_by(id: session[:user_id])
                 if (user.urls.exists?(url.id))
@@ -44,7 +46,7 @@ class UrlsController < ApplicationController
                     favourite = false
                 end
             end
-            render json: {code: 200, url: url, owner: owner, tags: tags, favourite: favourite}
+            render json: {code: 200, url: url, owner: owner, tags: tags, favourite: favourite, users: users}
         end
     end
     

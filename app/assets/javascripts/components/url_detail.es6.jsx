@@ -4,8 +4,9 @@ class UrlDetail extends React.Component {
     this.state = {
       url: this.props.url,
       tags: [],
-      owner: false,
+      owner: true,
       favourite: false,
+      users: [],
     };
     this.keyPress = this.keyPress.bind(this);
     this.addTag = this.addTag.bind(this);
@@ -19,7 +20,8 @@ class UrlDetail extends React.Component {
         _this.setState({
           favourite: res.favourite,
           owner: res.owner,
-          tags: res.tags
+          tags: res.tags,
+          users: res.users
         });
       }
     });
@@ -72,6 +74,7 @@ class UrlDetail extends React.Component {
         <div className="modal">
           <h1>{url.title}</h1>
           {this.state.owner == false ? <button className="favourite" onClick={this.favourite.bind(this, url)}>{favourite}</button> : ''}
+          <div>{this.state.users.length} favourite</div>
           <UrlTags tags={this.state.tags} addTag={this.addTag} />
         </div>
       </div>
