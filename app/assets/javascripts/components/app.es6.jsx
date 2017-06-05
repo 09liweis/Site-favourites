@@ -50,6 +50,10 @@ class App extends React.Component {
             <i className="fa fa-user fa-fw" aria-hidden="true"></i> User Profile
           </a>
           }
+          {(this.props.authenticated == true) ?
+          <a href="/logout"><i className="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a>
+          : ''
+          }
         </nav>
         {this.state.view == 'main' ? <Main displayDetail={this.displayDetail} /> : '' }
         {this.state.view == 'login' ? <Authentication /> : ''}

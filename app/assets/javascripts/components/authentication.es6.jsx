@@ -94,7 +94,7 @@ class Authentication extends React.Component {
       );
     }
     return (
-      <div className="authentication">
+      <div className="authentication block">
       {view}
       </div>
     );

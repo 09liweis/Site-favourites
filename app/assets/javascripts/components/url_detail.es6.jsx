@@ -36,7 +36,8 @@ class UrlDetail extends React.Component {
           alert('You are not Logined');
         } else {
           _this.setState({
-            favourite: res.favourite
+            favourite: res.favourite,
+            users: res.users
           }); 
         }
       }
@@ -73,7 +74,11 @@ class UrlDetail extends React.Component {
         </div>
         <div className="modal">
           <h1>{url.title}</h1>
-          {this.state.owner == false ? <button className="favourite" onClick={this.favourite.bind(this, url)}>{favourite}</button> : ''}
+          {this.state.owner == false ? 
+            <button className="favourite" 
+            onClick={this.favourite.bind(this, url)}>
+              <i className="fa fa-star"></i>{favourite}
+            </button> : ''}
           <div>{this.state.users.length} favourite</div>
           <UrlTags tags={this.state.tags} addTag={this.addTag} />
         </div>

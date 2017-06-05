@@ -119,7 +119,8 @@ class UrlsController < ApplicationController
                 current_user.urls << url
                 favourite = true
             end
-            render json: {code: 200, favourite: favourite}
+            users = url.users
+            render json: {code: 200, favourite: favourite, users: users}
         end
     end
 end
