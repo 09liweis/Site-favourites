@@ -5,13 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'urls#index'
   
-  get 'register' => 'users#register'
   post 'register' => 'users#new'
-  get 'login' => 'users#login'
   post 'login' => 'session#login'
   get 'logout' => 'session#logout'
-  
-  get 'add_url' => 'users#add_url'
 
   post 'urls' => 'urls#new'
   
@@ -31,6 +27,10 @@ Rails.application.routes.draw do
   post 'remove_url' => 'users#remove_url'
   
   post 'url/:id/favourite' => 'urls#favourite'
+  
+  #api
+  post 'api/login' => 'api#login'
+  get 'api/test' => 'api#test'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

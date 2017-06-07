@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Favourite Your Sites",
+  "version": "1.0",
+  "description": "A Chrome extension",
+  "permissions": [
+    "tabs"
+],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+  {
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["content.js"]
+  }
+],
+  "background": {
+  "scripts": ["background.js"]
+}
+}

@@ -119,10 +119,10 @@ class UrlForm extends React.Component {
       <a className="tag" onClick={this.selectTag.bind(this, tag)} key={tag.id}>{tag.name}</a>
     );
     return (
-      <form className="authentication" onSubmit={this.handleSubmit}>
+      <form className="authentication block" onSubmit={this.handleSubmit}>
         <h1>Add Your Site</h1>
         <div className="form_control">
-          <label>Enter Your Favourite</label>
+          <label>Enter Your Website</label>
           <input 
             type="text" 
             name="link" 
@@ -133,7 +133,6 @@ class UrlForm extends React.Component {
           />
         </div>
         <div className="form_control">
-          <label>Tags</label>
           Selected Tags: {selectedTags}
           <input 
             type="text" 

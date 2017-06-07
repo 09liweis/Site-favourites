@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-
-    def register
-    end
     
     def new
         @user = User.new(
@@ -35,10 +32,6 @@ class UsersController < ApplicationController
             urls = current_user.urls
             render json: {code: 200, urls: urls}
         end
-    end
-    
-    def add_url
-
     end
     
     def remove_url
