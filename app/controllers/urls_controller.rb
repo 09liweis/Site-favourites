@@ -8,56 +8,6 @@ class UrlsController < ApplicationController
         end
     end
     
-    
-    # go to add url page
-    def add_url
-    end
-    
-    
-    # rest list of urls
-    def list
-        if (session[:user_id])
-            #
-        else
-            #
-        end
-        urls = Url.all
-        render json: {code: 200, urls: urls}
-    end
-    
-    # get url detail
-    def detail
-        url = Url.find_by(id: params[:id])
-        owner = false
-        tags = url.tags
-        users = url.users
-
-        if session[:user_id] == nil
-            render json: {code: 200, url: url, tags: tags, owner: false, favourite: false, users: users}
-        else
-            if url.owner_id == session[:user_id]
-                owner = true
-                favourite = false
-            else
-                user = User.find_by(id: session[:user_id])
-                if (user.urls.exists?(url.id))
-                    favourite = true
-                else
-                    favourite = false
-                end
-            end
-            render json: {code: 200, url: url, owner: owner, tags: tags, favourite: favourite, users: users}
-        end
-    end
-    
-    # get website info with input url
-    def get_info_with_url
-        website = params[:link]
-        page = MetaInspector.new(website)
-        url = { title: page.title, favicon: page.images.favicon }
-        render json: {code: 200, url: url}
-    end
-    
     # add new url
     def new
         url = Url.new(

@@ -10,7 +10,7 @@ class Main extends React.Component {
   componentDidMount() {
     const _this = this;
     $.ajax({
-      url: '/urls_list',
+      url: '/api/url_list',
       method: 'GET',
       success(res) {
         _this.setState({
@@ -20,7 +20,7 @@ class Main extends React.Component {
     });
     
     $.ajax({
-      url: '/tags_list',
+      url: '/api/tags_list',
       method: 'GET',
       success(res) {
         _this.setState({
@@ -32,7 +32,7 @@ class Main extends React.Component {
   filterByTag(id) {
     const _this = this;
     $.ajax({
-      url: 'url/tag/' + id,
+      url: 'api/url/tag/' + id,
       method: 'GET',
       success(res) {
         _this.setState({

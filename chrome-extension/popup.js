@@ -1,46 +1,78 @@
 const baseURL = 'https://site-favourites-a09liweis.c9users.io/';
 
+var email;
+
+var url;
+var title;
+var fav;
+
+chrome.storage.sync.get(['email'], function(items){
+	if (items.hasOwnProperty('email')) {
+		email = items.email;
+	}
+});
+
 window.onload = function() {
+
+	if (typeof email != 'undefined') {
+		$('#login').hide();
+	}
 
 	$('#login').submit(function(e) {
 		e.preventDefault();
-		var email = $('#email').val();
+		email = $('#email').val();
+		chrome.storage.sync.set({ "email": email }, function(){
+		});
 		var password = $('#password').val();
 		login(email, password);
 	});
 
-	// var form = document.forms[0];
-	// form.onsubmit = function(e) {
-	// 	e.preventDefault();
-	// 	var email = form.email.value;
-	// 	var password = form.password.value;
-	// 	login(email, password);
-	// }
+	$('#add').on('click', function() {
+		add(url, title, fav, email);
+	})
 
-	var urlNode = document.getElementById('url');
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		var activeTab = tabs[0];
-		var url = activeTab.url;
-		var fav = activeTab.favIconUrl;
-		var title = activeTab.title;
-		urlNode.innerText = url;
+		url = activeTab.url;
+		fav = activeTab.favIconUrl;
+		title = activeTab.title;
+		$('#title').html(title);
+		$('#url').html(url);
 	});
 };
 
 function login(email, password) {
-	var http = new XMLHttpRequest();
-	var url = baseURL + 'api/login';
-	var params = 'email=' + email + '&password=' + password;
-	http.open('POST', url, true);
+	//var data = '?email=' + email;
+	$.ajax({
+		url: baseURL + 'api/login',
+		method: 'POST',
+		data: {
+			email: email,
+			password: password
+		},
+		success(res) {
+			if (res.code == 200) {
+				$('#login').hide();
+				$('#add-url').show();
+			}
+		}
+	})
+}
 
-	//Send the proper header information along with the request
-	http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-	http.onreadystatechange = function() {//Call a function when the state changes.
-	    if(http.readyState == 4 && http.status == 200) {
-	        var res = JSON.parse(http.responseText);
-	        console.log(res);
-	    }
-	}
-	http.send(params);
+function add(url, title, fav, email) {
+	$.ajax({
+		url: baseURL + 'api/add_url',
+		method: 'GET',
+		data: {
+			url: url,
+			title: title,
+			fav: fav,
+			email: email
+		},
+		success(res) {
+			if (res.code == 200) {
+				alert(res.msg);
+			}
+		}
+	})
 }

@@ -30,7 +30,7 @@ class UrlForm extends React.Component {
   getSiteInfo(link) {
     var _this = this;
     $.ajax({
-      url: '/get_info_with_url',
+      url: 'api/get_info_with_url',
       data: {link: link},
       success(result) {
         if (result.code == 200) {

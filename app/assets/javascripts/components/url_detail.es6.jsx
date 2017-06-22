@@ -14,7 +14,7 @@ class UrlDetail extends React.Component {
   componentDidMount() {
     const _this = this;
     $.ajax({
-      url: '/url/' + _this.state.url.id,
+      url: 'api/url/' + _this.state.url.id,
       method: 'GET',
       success(res) {
         _this.setState({

@@ -25,23 +25,30 @@
 			background: blue;
 			color: #ffffff;
 		}
+		#add-url {
+			display: none;
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<h1>Favourite Your Site</h1>
-		<div id="url">Url Placement</div>
 		<form id="login" name="login">
 			<div class="form-group">
-				<input class="form-control" type="text" placeholder="Email" name="email" />
+				<input class="form-control" type="text" placeholder="Email" name="email" id="email" />
 			</div>
 			<div class="form-group">
-				<input class="form-control" type="password" placeholder="Password" name="password" />
+				<input class="form-control" type="password" placeholder="Password" name="password" id="password" />
 			</div>
 			<div class="form-group">
 				<input class="btn" type="submit" value="Login" />
 			</div>
 		</form>
+		<div id="add-url">
+			<p id="title"></p>
+			<p id="url"></p>
+			<button id="add" class="btn">Add to Account</button>
+		</div>
 	</div>
 </body>
 </html>

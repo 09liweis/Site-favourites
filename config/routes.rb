@@ -14,14 +14,9 @@ Rails.application.routes.draw do
   #rest
   get 'user_owned' => 'users#urls'
   get 'user_favourites' => 'users#favourites'
-  get 'urls_list' => 'urls#list'
-  get 'get_info_with_url' => 'urls#get_info_with_url'
   
-  get 'tags_list' => 'tags#list'
   get 'tags' => 'tags#index'
-  get 'url/:id' => 'urls#detail'
   get 'url/:id/tags' => 'tags#get_tags_by_url'
-  get 'url/tag/:id' => 'tags#get_urls_by_tag'
   
   post 'url/:id/add_tag' => 'urls#add_tag'
   post 'remove_url' => 'users#remove_url'
@@ -30,8 +25,13 @@ Rails.application.routes.draw do
   
   #api
   post 'api/login' => 'api#login'
-  get 'api/test' => 'api#test'
-  
+  get 'api/add_url' => 'api#add_url'
+  get 'api/tags_list' => 'api#tag_list'
+  get 'api/url_list' => 'api#url_list'
+  get 'api/url/:id' => 'api#url_detail'
+  get 'api/get_info_with_url' => 'api#get_info_with_url'
+  get 'api/url/tag/:id' => 'api#get_urls_by_tag'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
