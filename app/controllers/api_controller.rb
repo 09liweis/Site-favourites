@@ -3,14 +3,15 @@ class ApiController < ApplicationController
     def login
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
-            render json: {code: 200, msg: 'Match account'}
+            render json: {code: 200, msg: 'Match account', user: user}
         else
             render json: {code: 400, msg: 'Something Wrong'}
         end
     end
     
     def add_url
-        user = User.find_by(email: params[:email])
+        user_id = session[:user_id] == nil ? params[:user_id] : session[:user_id]
+        user = User.find_by(id: user_id)
         if user
             url = Url.new(
                 title: params[:title],
