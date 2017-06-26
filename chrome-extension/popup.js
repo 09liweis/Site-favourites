@@ -1,28 +1,26 @@
-const baseURL = 'https://site-favourites-a09liweis.c9users.io/';
+const baseURL = 'https://favourite-site.herokuapp.com/';
 
-var email;
+var userId;
 
 var url;
 var title;
 var fav;
 
-chrome.storage.sync.get(['email'], function(items){
-	if (items.hasOwnProperty('email')) {
-		email = items.email;
-	}
-});
-
 window.onload = function() {
 
-	if (typeof email != 'undefined') {
-		$('#login').hide();
-	}
+	chrome.storage.sync.get(['userId'], function(items){
+		if (items.hasOwnProperty('userId')) {
+			userId = items.userId;
+		}
+		if (typeof userId != 'undefined') {
+			$('#login').hide();
+			$('#add-url').show();
+		}
+	});
 
 	$('#login').submit(function(e) {
 		e.preventDefault();
-		email = $('#email').val();
-		chrome.storage.sync.set({ "email": email }, function(){
-		});
+		var email = $('#email').val();
 		var password = $('#password').val();
 		login(email, password);
 	});
@@ -54,6 +52,8 @@ function login(email, password) {
 			if (res.code == 200) {
 				$('#login').hide();
 				$('#add-url').show();
+				chrome.storage.sync.set({ "userId": res.user.id }, function(){
+				});
 			}
 		}
 	})
@@ -67,11 +67,11 @@ function add(url, title, fav, email) {
 			url: url,
 			title: title,
 			fav: fav,
-			email: email
+			user_id: userId
 		},
 		success(res) {
 			if (res.code == 200) {
-				alert(res.msg);
+				$('#add').html(res.msg);
 			}
 		}
 	})
