@@ -1,5 +1,8 @@
 https://github.com/jaimeiniesta/metainspector
 
+Design Idea:
+http://deweyapp.io/
+
 Postgresql Start:
 sudo service postgresql start
 psql -c "create database development owner=ubuntu"
