@@ -10,7 +10,7 @@ class Main extends React.Component {
   componentDidMount() {
     const _this = this;
     $.ajax({
-      url: '/api/url_list',
+      url: '/api/urls',
       method: 'GET',
       success(res) {
         _this.setState({
