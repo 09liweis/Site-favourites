@@ -95,5 +95,10 @@ class ApiController < ApplicationController
         end
         render json: {code: 200, urls: urls}
     end
+    
+    def repopulate_url_info
+        urls = Url.all.order(created_at: :desc)
+        
+    end
 
 end

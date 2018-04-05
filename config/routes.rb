@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get 'api/url/:id' => 'api#url_detail'
   get 'api/get_info_with_url' => 'api#get_info_with_url'
   get 'api/url/tag/:id' => 'api#get_urls_by_tag'
+  get 'api/repopulate_url_info' => 'api#repopulate_url_info'
 end
