@@ -98,7 +98,18 @@ class ApiController < ApplicationController
     
     def repopulate_url_info
         urls = Url.all.order(created_at: :desc)
-        
+        urls.each do |url|
+            if url.link
+                puts url.link
+                begin
+                    page = MetaInspector.new(url.link)
+                    url.update_attributes(:title => page.title, :favicon => page.images.favicon)
+                rescue => ex
+                    logger.error ex.message
+                end
+            end
+        end
+        render json: {code: 200}
     end
 
 end
