@@ -1,4 +1,11 @@
-https://github.com/jaimeiniesta/metainspector
+# Project Overview
+
+A web application to bookmmark your favourite websites
+
+## Stack Tech
+* Rails 4
+* Reactjs
+* Postgresql
 
 Design Idea:
 http://deweyapp.io/
@@ -6,7 +13,6 @@ http://deweyapp.io/
 Postgresql Start:
 sudo service postgresql start
 psql -c "create database development owner=ubuntu"
-
 
 Rake
 rake db:drop:all
