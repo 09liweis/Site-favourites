@@ -52,7 +52,7 @@ class UserProfile extends React.Component {
           <a className={(this.state.view == 'add_new' ? 'selected' : '')} onClick={this.changeView.bind(this, 'add_new')}><i className="fa fa-plus fa-fw" aria-hidden="true"></i> Add New</a>
         </nav>
         {(this.state.view == 'owned') ? 
-        <UrlList urls={this.state.ownUrls} displayDetail={this.props.displayDetail} />
+        <UrlList page="profile" urls={this.state.ownUrls} displayDetail={this.props.displayDetail} />
         : '' }
         
         {(this.state.view == 'favourites') ? 
