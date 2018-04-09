@@ -111,5 +111,10 @@ class ApiController < ApplicationController
         end
         render json: {code: 200}
     end
+    
+    def remove_url
+        user_id = session[:user_id] == nil ? params[:user_id] : session[:user_id]
+        
+    end
 
 end
