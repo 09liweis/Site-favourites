@@ -13,18 +13,14 @@ class UrlList extends React.Component {
     });
   }
   handleUrl(url) {
-    console.log(url);
-    var urls = this.state.urls.filter(function(u) {
-      return u.id != url.id;
-    });
     var _this = this;
     $.ajax({
-      url: '/remove_url',
+      url: '/api/remove_url',
       method: 'POST',
-      data: url,
+      data: {url_id: url.id},
       success(result) {
         _this.setState({
-          urls: urls
+          urls: result.urls
         });
       }
     });
