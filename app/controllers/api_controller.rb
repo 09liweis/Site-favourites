@@ -113,10 +113,9 @@ class ApiController < ApplicationController
     end
     
     def remove_url
-        ##user_id = session[:user_id] == nil ? params[:user_id] : session[:user_id]
+        user_id = session[:user_id] == nil ? params[:user_id] : session[:user_id]
         Url.find(params[:url_id]).destroy
-        urls = Url.all.order(created_at: :desc)
-        render json: {code: 200, urls: urls}
+        render json: {code: 200}
     end
 
 end

@@ -13,6 +13,9 @@ class UrlList extends React.Component {
     });
   }
   handleUrl(url) {
+    var urls = this.state.urls.filter(function(u) {
+      return u.id != url.id;
+    });
     var _this = this;
     $.ajax({
       url: '/api/remove_url',
@@ -20,7 +23,7 @@ class UrlList extends React.Component {
       data: {url_id: url.id},
       success(result) {
         _this.setState({
-          urls: result.urls
+          urls: urls
         });
       }
     });
