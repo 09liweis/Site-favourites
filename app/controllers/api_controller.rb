@@ -44,7 +44,7 @@ class ApiController < ApplicationController
     def get_info_with_url
         website = params[:link]
         page = MetaInspector.new(website)
-        url = { title: page.title, favicon: page.images.favicon }
+        url = { title: page.title, favicon: page.images.favicon ? page.images.favicon : page.images[0] }
         render json: {code: 200, url: url}
     end
     
