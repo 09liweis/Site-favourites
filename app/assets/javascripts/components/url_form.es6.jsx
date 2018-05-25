@@ -133,6 +133,14 @@ class UrlForm extends React.Component {
           />
         </div>
         <div className="form_control">
+          <label>Title</label>
+          <input type="text" value={this.state.title} />
+        </div>
+        <div className="form_control">
+          <label>Favicon</label>
+          <input type="text" value={this.state.favicon} />
+        </div>
+        <div className="form_control">
           Selected Tags: {selectedTags}
           <input 
             type="text" 
