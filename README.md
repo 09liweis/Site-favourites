@@ -21,3 +21,7 @@ rake db:migrate
 
 push to heroku:
 heroku run rake db:migrate
+
+
+Todo:
+* Add React Router https://github.com/reactjs/react-rails/wiki/Using-react-router
