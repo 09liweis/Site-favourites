@@ -51,7 +51,7 @@ class Authentication extends React.Component {
     });
   }
   render() {
-    var view;
+    let view;
     if (this.state.view == 'login') {
       view = (
       <form onSubmit={this.handleLogin.bind(this)}>
