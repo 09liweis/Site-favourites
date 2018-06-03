@@ -45,7 +45,6 @@ class UserProfile extends React.Component {
   render () {
     return (
       <div>
-        <h1>User Profile</h1>
         <nav className="nav block">
           <a className={(this.state.view == 'owned' ? 'selected' : '')} onClick={this.changeView.bind(this, 'owned')}><i className="fa fa-user fa-fw" aria-hidden="true"></i> My Urls {this.state.ownUrls.length}</a>
           <a className={(this.state.view == 'favourites' ? 'selected' : '')} onClick={this.changeView.bind(this, 'favourites')}><i className="fa fa-star fa-fw" aria-hidden="true"></i> My Favourites {this.state.favourites.length}</a>
