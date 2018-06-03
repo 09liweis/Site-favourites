@@ -81,7 +81,7 @@ class ApiController < ApplicationController
     
     # get list of tags
     def tag_list
-        tags = Tag.all
+        tags = Tag.order('name asc')
         render json: {code: 200, tags: tags}
     end
     
