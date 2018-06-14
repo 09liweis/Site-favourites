@@ -4,6 +4,7 @@ class Main extends React.Component {
     this.state = {
       tags: [],
       urls: [],
+      selectedTag: ''
     };
     this.filterByTag = this.filterByTag.bind(this);
   }
@@ -36,7 +37,8 @@ class Main extends React.Component {
       method: 'GET',
       success(res) {
         _this.setState({
-          urls: res.urls
+          urls: res.urls,
+          selectedTag: id
         });
       }
     });
@@ -44,7 +46,7 @@ class Main extends React.Component {
   render () {
     return (
       <div>
-        <Tags tags={this.state.tags} filterByTag={this.filterByTag.bind(this)} />
+        <Tags tags={this.state.tags} selectedTag={this.state.selectedTag} filterByTag={this.filterByTag.bind(this)} />
         <UrlList urls={this.state.urls} displayDetail={this.props.displayDetail} />
       </div>
     );
