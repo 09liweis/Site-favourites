@@ -14,15 +14,15 @@ class Tags extends React.Component {
   }
   
   render () {
-    const selectedTag = this.state.selectedTag;
-    const tags = this.state.tags.map((t) => 
+    const {selectedTag, tags} = this.state;
+    const tagList = tags.map((t) => 
       <div className={t.id == selectedTag ? 'tag selected' : 'tag'} key={t.id} onClick={this.props.filterByTag.bind(this, t.id)}>{t.name}</div>
     );
     return (
       <div id="tags" className="block">
         <h2>Tags</h2>
         <div className="tag" onClick={this.props.filterByTag.bind(this, 'all')}>All</div>
-        {tags}
+        {tagList}
       </div>
     );
   }
