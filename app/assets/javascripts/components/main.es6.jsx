@@ -44,10 +44,11 @@ class Main extends React.Component {
     });
   }
   render () {
+    const {tags, urls} = this.state;
     return (
       <div>
-        <Tags tags={this.state.tags} selectedTag={this.state.selectedTag} filterByTag={this.filterByTag.bind(this)} />
-        <UrlList urls={this.state.urls} displayDetail={this.props.displayDetail} />
+        <Tags tags={tags} selectedTag={this.state.selectedTag} filterByTag={this.filterByTag.bind(this)} />
+        <UrlList urls={urls} displayDetail={this.props.displayDetail} />
       </div>
     );
   }
