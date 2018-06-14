@@ -21,7 +21,7 @@ class Tags extends React.Component {
     return (
       <div id="tags" className="block">
         <h2>Tags</h2>
-        <div className="tag" onClick={this.props.filterByTag.bind(this, 'all')}>All</div>
+        <div className={selectedTag == 'all' ? 'tag selected' : 'tag'} onClick={this.props.filterByTag.bind(this, 'all')}>All</div>
         {tagList}
       </div>
     );

@@ -4,7 +4,7 @@ class Main extends React.Component {
     this.state = {
       tags: [],
       urls: [],
-      selectedTag: ''
+      selectedTag: 'all'
     };
     this.filterByTag = this.filterByTag.bind(this);
   }
