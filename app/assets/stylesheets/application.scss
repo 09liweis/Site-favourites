@@ -64,6 +64,11 @@ a.selected {
 .url {
     margin-bottom: 5px;
 }
+.url__content {
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 .favicon {
     width: 30px;
@@ -137,9 +142,4 @@ a.selected {
     cursor: pointer;
     width: initial;
     padding: 15px;
-}
-.url__content {
-    margin-right: 5px;
-    display: inline-block;
-    vertical-align: middle;
 }
