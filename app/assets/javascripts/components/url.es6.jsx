@@ -6,7 +6,7 @@ class Url extends React.Component {
     };
   }
   render () {
-    let url = this.state.url;
+    const url = this.state.url;
     let action;
     
     if (this.props.page == 'profile') {
