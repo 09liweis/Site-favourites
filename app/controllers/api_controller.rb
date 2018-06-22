@@ -91,7 +91,7 @@ class ApiController < ApplicationController
             urls = Url.all
         else 
             tag = Tag.find_by(id: params[:id])
-            urls = tag.urls
+            urls = tag.urls.order(created_at: :desc)
         end
         render json: {code: 200, urls: urls}
     end
