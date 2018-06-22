@@ -88,7 +88,7 @@ class ApiController < ApplicationController
     # get urls with a specific tag id
     def get_urls_by_tag
         if (params[:id] == 'all') 
-            urls = Url.all
+            urls = Url.all.order(created_at: :desc)
         else 
             tag = Tag.find_by(id: params[:id])
             urls = tag.urls.order(created_at: :desc)
