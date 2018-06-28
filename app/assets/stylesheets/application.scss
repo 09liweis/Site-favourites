@@ -93,34 +93,3 @@ a.selected {
     height: 20px;
     color: #f66495;
 }
-
-.form_control {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.form_control label{
-    display: block;
-    margin-bottom: 15px;
-}
-
-.form_control input {
-    border-radius: 3px;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #c9c9c9;
-    font-size: 20px;
-}
-
-.form_control input:focus {
-    border: 1px solid #52bad5;
-}
-
-.form_control .btn {
-    background: #3db2d0;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    width: initial;
-    padding: 15px;
-}
