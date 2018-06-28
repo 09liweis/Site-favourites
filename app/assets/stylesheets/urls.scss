@@ -4,12 +4,12 @@
 
 .url {
     margin-bottom: 20px;
-    .links {
-        width: 78%;
-    }
-    .modalLink {
-        margin: 10px 0;
-    }
+}
+.links {
+    width: 78%;
+}
+.modalLink {
+    margin: 10px 0;
 }
 .url__content {
     display: inline-block;
@@ -59,4 +59,23 @@
     padding: 10px;
     margin-bottom: 5px;
     cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .url {
+        padding: 0 10px;
+        width: 33.3333%;
+        display: inline-block;
+    }
+    .favicon, .links {
+        width: 100%;
+    }
+    .links {
+        padding: 10px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .url {
+        width: 25%;
+    }
 }

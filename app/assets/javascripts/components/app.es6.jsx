@@ -58,7 +58,7 @@ class App extends React.Component {
         {this.state.view == 'main' ? <Main displayDetail={this.displayDetail} /> : '' }
         {this.state.view == 'login' ? <Authentication /> : ''}
         {this.state.view == 'user' ? <UserProfile displayDetail={this.displayDetail} /> : '' }
-        { (this.state.modalOpen) ? <UrlDetail url={this.state.detailUrl} closeModal={this.closeModal} /> : ''}
+        { this.state.modalOpen ? <UrlDetail url={this.state.detailUrl} closeModal={this.closeModal} /> : ''}
       </div>
     );
   }
