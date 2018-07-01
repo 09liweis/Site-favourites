@@ -35,6 +35,10 @@ a {
     color: #237a91;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.3s ease;
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 a.selected {
