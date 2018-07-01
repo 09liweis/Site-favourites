@@ -17,7 +17,7 @@
     &:hover {
         opacity: 0.7;
     }
-}
-.tag.selected {
-    background-color: #097b98;
+    &.selected {
+        background-color: #097b98;
+    }
 }
