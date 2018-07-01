@@ -39,10 +39,9 @@ a {
     &:hover {
         opacity: 0.8;
     }
-}
-
-a.selected {
-    border-bottom: 3px solid #00a1d6;
+    &.selected {
+        border-bottom: 3px solid #00a1d6;
+    }
 }
 
 .btn {
