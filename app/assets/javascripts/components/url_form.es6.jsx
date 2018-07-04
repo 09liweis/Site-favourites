@@ -134,11 +134,11 @@ class UrlForm extends React.Component {
         </div>
         <div className="form_control">
           <label>Title</label>
-          <input type="text" value={this.state.title} onChange={this.handleChange}  />
+          <input type="text" value={this.state.title} name="title" onChange={this.handleChange}  />
         </div>
         <div className="form_control">
           <label>Favicon</label>
-          <input type="text" value={this.state.favicon} onChange={this.handleChange}  />
+          <input type="text" value={this.state.favicon} name="favicon" onChange={this.handleChange}  />
         </div>
         <div className="form_control">
           Selected Tags: {selectedTags}
