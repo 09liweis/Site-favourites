@@ -43,9 +43,17 @@ class ApiController < ApplicationController
     # get website info with input url
     def get_info_with_url
         website = params[:link]
-        page = MetaInspector.new(website)
-        url = { title: page.title, favicon: page.images.favicon ? page.images.favicon : page.images[0] }
-        render json: {code: 200, url: url}
+        puts website
+        if website
+            page = MetaInspector.new(website)
+            if page
+                url = { title: page.title, favicon: page.images.favicon ? page.images.favicon : page.images[0] }
+                render json: {code: 200, url: url}
+            else
+                render json: {code: 500 }
+            end
+        end
+        
     end
     
     # rest list of urls
