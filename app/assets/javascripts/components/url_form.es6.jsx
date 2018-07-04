@@ -119,7 +119,7 @@ class UrlForm extends React.Component {
       <a className="tag" onClick={this.selectTag.bind(this, tag)} key={tag.id}>{tag.name}</a>
     );
     return (
-      <form className="authentication block" onSubmit={this.handleSubmit}>
+      <div className="authentication block">
         <h1>Add Your Site</h1>
         <div className="form_control">
           <label>Enter Your Website</label>
@@ -153,9 +153,9 @@ class UrlForm extends React.Component {
           </div>
         </div>
         <div className="form_control">
-          <input type="submit" className="btn" value="Add" />
+          <input type="submit" className="btn" value="Add" onClick={this.handleSubmit} />
         </div>
-      </form>
+      </div>
     );
   }
 }
