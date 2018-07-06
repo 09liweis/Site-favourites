@@ -14,7 +14,9 @@ class Url extends React.Component {
     }
     return (
       <div className="url">
-        <img className="url__content favicon" src={url.favicon} />
+        <div className="url__content">
+          <img className="favicon" src={url.favicon} />
+        </div>
         <div className="url__content links">
           <a className="link" onClick={this.props.displayDetail.bind(this, url)}>{url.title}</a>
           <div className="modalLink"><a className="link" href={url.link} target="_blank">Open New Tab <i className="fa fa-external-link"></i></a></div>
