@@ -14,8 +14,8 @@ class Url extends React.Component {
     }
     return (
       <div className="url">
-        <figure className="url__content">
-          <img className="favicon" src={url.favicon} alt={url.title} />
+        <figure className="url__content favicon">
+          <img className="" src={url.favicon} alt={url.title} />
         </figure>
         <div className="url__content links">
           <a className="link" onClick={this.props.displayDetail.bind(this, url)}>{url.title}</a>
