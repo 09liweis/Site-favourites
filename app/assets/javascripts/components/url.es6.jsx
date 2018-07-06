@@ -13,7 +13,7 @@ class Url extends React.Component {
       action = <a className="link btn" onClick={this.props.handleUrl.bind(this, url)}>Remove</a>;
     }
     return (
-      <div className="url">
+      <div className="url block">
         <figure className="url__content favicon">
           <img className="url__icon" src={url.favicon} alt={url.title} />
         </figure>
