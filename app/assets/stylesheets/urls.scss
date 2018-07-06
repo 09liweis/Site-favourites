@@ -1,8 +1,12 @@
 // Place all the styles related to the Urls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+#urls {
+    display: flex;
+    flex-wrap: wrap;
+}
 .url {
+    width: 100%;
     margin-bottom: 20px;
 }
 .links {
@@ -69,13 +73,13 @@
     .url {
         padding: 0 10px;
         width: 25%;
-        display: inline-block;
     }
-    .favicon, .links {
+    .favicon {
         width: 100%;
     }
     .links {
         padding: 10px;
+        width: 100%;
     }
 }
 @media screen and (min-width: 1024px) {
