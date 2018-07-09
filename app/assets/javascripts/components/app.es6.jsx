@@ -47,7 +47,7 @@ class App extends React.Component {
           :
           <a className={(this.state.view == 'user' ? 'selected' : '')} 
               onClick={this.changeView.bind(this, 'user')}>
-            <i className="fa fa-user fa-fw" aria-hidden="true"></i> User Profile
+            <i className="fa fa-user fa-fw" aria-hidden="true"></i> User
           </a>
           }
           {(this.props.authenticated == true) ?
