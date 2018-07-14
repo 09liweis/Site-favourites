@@ -19,7 +19,7 @@ class Url extends React.Component {
         </figure>
         <div className="url__content links">
           <a className="link" onClick={this.props.displayDetail.bind(this, url)}>{url.title}</a>
-          <div className="modalLink"><a className="link" href={url.link} target="_blank">Open New <i className="fa fa-external-link"></i></a></div>
+          <div className="modalLink"><a className="link" href={url.link} target="_blank"><i className="fa fa-external-link"></i></a></div>
           {action}
         </div>
       </div>
