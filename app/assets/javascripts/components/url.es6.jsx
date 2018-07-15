@@ -26,4 +26,3 @@ class Url extends React.Component {
     );
   }
 }
-
