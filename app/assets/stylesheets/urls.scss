@@ -8,10 +8,10 @@
 .url {
     width: 100%;
     margin-bottom: 20px;
-    border-top: 2px solid #52bad5;
+    border-top: 4px solid #52bad5;
     transition: all 0.3s ease;
     &:hover {
-        border-top-width: 4px;
+        border-top-color: #4790a2;
     }
 }
 .links {
