@@ -14,7 +14,7 @@ class Url extends React.Component {
     }
     return (
       <div className="url block">
-        <figure className="url__content favicon">
+        <figure className="url__content url__favicon">
           <img className="url__icon" src={url.favicon} alt={url.title} />
         </figure>
         <div className="url__content links">
