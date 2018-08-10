@@ -52,7 +52,7 @@ class App extends React.Component {
             <i className="fa fa-user fa-fw" aria-hidden="true"></i> User
           </a>
           }
-          {(auth == true) ?
+          {(auth) ?
           <a href="/logout"><i className="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a>
           : ''
           }
