@@ -36,11 +36,12 @@ class App extends React.Component {
   }
   render () {
     const {view} = this.state;
+    const auth = this.props.authenticated;
     return(
       <div id="app">
         <nav className="nav block">
           <a className={(view == 'main' ? 'selected' : '')} onClick={this.changeView.bind(this, 'main')}><i className="fa fa-home fa-fw" aria-hidden="true"></i> Website</a>
-          {(this.props.authenticated == false) ?
+          {(auth == false) ?
           <a className={(view == 'login' ? 'selected' : '')} 
               onClick={this.changeView.bind(this, 'login')}>
             <i className="fa fa-user fa-fw" aria-hidden="true"></i>Login
@@ -51,7 +52,7 @@ class App extends React.Component {
             <i className="fa fa-user fa-fw" aria-hidden="true"></i> User
           </a>
           }
-          {(this.props.authenticated == true) ?
+          {(auth == true) ?
           <a href="/logout"><i className="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a>
           : ''
           }
