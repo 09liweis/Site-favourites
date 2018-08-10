@@ -35,17 +35,18 @@ class App extends React.Component {
     });
   }
   render () {
+    const {view} = this.state;
     return(
       <div id="app">
         <nav className="nav block">
-          <a className={(this.state.view == 'main' ? 'selected' : '')} onClick={this.changeView.bind(this, 'main')}><i className="fa fa-home fa-fw" aria-hidden="true"></i> Website</a>
+          <a className={(view == 'main' ? 'selected' : '')} onClick={this.changeView.bind(this, 'main')}><i className="fa fa-home fa-fw" aria-hidden="true"></i> Website</a>
           {(this.props.authenticated == false) ?
-          <a className={(this.state.view == 'login' ? 'selected' : '')} 
+          <a className={(view == 'login' ? 'selected' : '')} 
               onClick={this.changeView.bind(this, 'login')}>
             <i className="fa fa-user fa-fw" aria-hidden="true"></i>Login
           </a>
           :
-          <a className={(this.state.view == 'user' ? 'selected' : '')} 
+          <a className={(view == 'user' ? 'selected' : '')} 
               onClick={this.changeView.bind(this, 'user')}>
             <i className="fa fa-user fa-fw" aria-hidden="true"></i> User
           </a>
@@ -55,9 +56,9 @@ class App extends React.Component {
           : ''
           }
         </nav>
-        {this.state.view == 'main' ? <Main displayDetail={this.displayDetail} /> : '' }
-        {this.state.view == 'login' ? <Authentication /> : ''}
-        {this.state.view == 'user' ? <UserProfile displayDetail={this.displayDetail} /> : '' }
+        {view == 'main' ? <Main displayDetail={this.displayDetail} /> : '' }
+        {view == 'login' ? <Authentication /> : ''}
+        {view == 'user' ? <UserProfile displayDetail={this.displayDetail} /> : '' }
         { this.state.modalOpen ? <UrlDetail url={this.state.detailUrl} closeModal={this.closeModal} /> : ''}
       </div>
     );
