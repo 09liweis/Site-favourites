@@ -51,6 +51,7 @@ class Authentication extends React.Component {
     });
   }
   render() {
+    const {email, password, password_confirmation} = this.state;
     let view;
     if (this.state.view == 'login') {
       view = (
@@ -59,11 +60,11 @@ class Authentication extends React.Component {
         <p>Need an account? <a onClick={() => this.setState({view: 'register'})}>Create an account</a></p>
         <div className="form_control">
           <div className="error"></div>
-          <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email" />
+          <input type="email" name="email" value={email} onChange={this.handleChange} placeholder="Email" />
         </div>
         <div className="form_control">
           <div className="error"></div>
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"/>
+          <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="Password"/>
         </div>
         <div className="form_control">
           <input type="submit" className="btn" value="Log In" />
@@ -77,15 +78,15 @@ class Authentication extends React.Component {
         <p>Already have an account? <a onClick={() => this.setState({view: 'login'})}>Log in here</a></p>
         <div className="form_control">
           <div className="error"></div>
-          <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email" />
+          <input type="email" name="email" value={email} onChange={this.handleChange} placeholder="Email" />
         </div>
         <div className="form_control">
           <div className="error"></div>
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
+          <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="Password" />
         </div>
         <div className="form_control">
           <div className="error"></div>
-          <input type="password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.handleChange} placeholder="Password Confirmation" />
+          <input type="password" name="password_confirmation" value={password_confirmation} onChange={this.handleChange} placeholder="Password Confirmation" />
         </div>
         <div className="form_control">
           <input type="submit" className="btn" value="Sign Up" />
