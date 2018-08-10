@@ -41,15 +41,15 @@ class App extends React.Component {
       <div id="app">
         <nav className="nav block">
           <a className={(view == 'main' ? 'selected' : '')} onClick={this.changeView.bind(this, 'main')}><i className="fa fa-home fa-fw" aria-hidden="true"></i> Website</a>
-          {(auth == false) ?
-          <a className={(view == 'login' ? 'selected' : '')} 
-              onClick={this.changeView.bind(this, 'login')}>
-            <i className="fa fa-user fa-fw" aria-hidden="true"></i>Login
-          </a>
-          :
+          {(auth) ?
           <a className={(view == 'user' ? 'selected' : '')} 
               onClick={this.changeView.bind(this, 'user')}>
             <i className="fa fa-user fa-fw" aria-hidden="true"></i> User
+          </a>
+          :
+          <a className={(view == 'login' ? 'selected' : '')} 
+              onClick={this.changeView.bind(this, 'login')}>
+            <i className="fa fa-user fa-fw" aria-hidden="true"></i>Login
           </a>
           }
           {(auth) ?
