@@ -58,7 +58,7 @@ class ApiController < ApplicationController
     
     # rest list of urls
     def url_list
-        urls = Url.all.order(created_at: :desc)
+        urls = Url.all.select('id, owner_id, title, link, favicon').order(created_at: :desc)
         render json: {code: 200, urls: urls}
     end
     
