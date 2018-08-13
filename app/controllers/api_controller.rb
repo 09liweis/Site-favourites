@@ -64,7 +64,7 @@ class ApiController < ApplicationController
     
     # get url detail
     def url_detail
-        url = Url.find_by(id: params[:id])
+        url = Url.select('id, owner_id, title, favicon, link').find_by(id: params[:id])
         owner = false
         tags = url.tags
         users = url.users
