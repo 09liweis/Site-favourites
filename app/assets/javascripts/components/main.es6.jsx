@@ -21,7 +21,7 @@ class Main extends React.Component {
     });
     
     $.ajax({
-      url: '/api/tags_list',
+      url: '/api/tags',
       method: 'GET',
       success(res) {
         _this.setState({
