@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   #api
   post 'api/login' => 'api#login'
   post 'api/add_url' => 'api#add_url'
-  get 'api/tags_list' => 'api#tag_list'
+  get 'api/tags' => 'api#tag_list'
   get 'api/urls' => 'api#url_list'
   get 'api/url/:id' => 'api#url_detail'
   get 'api/get_info_with_url' => 'api#get_info_with_url'
