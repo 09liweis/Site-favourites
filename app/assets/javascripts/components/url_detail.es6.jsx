@@ -66,7 +66,7 @@ class UrlDetail extends React.Component {
     console.log(e);
   }
   render () {
-    const url = this.state.url;
+    const {url} = this.state;
     var favourite = this.state.favourite ? 'Unfavourite' : 'Favourite';
     return (
       <div className="detail">
