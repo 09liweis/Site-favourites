@@ -66,7 +66,7 @@ class UrlDetail extends React.Component {
     console.log(e);
   }
   render () {
-    const {url} = this.state;
+    const {url, owner} = this.state;
     var favourite = this.state.favourite ? 'Unfavourite' : 'Favourite';
     return (
       <div className="detail">
@@ -74,7 +74,7 @@ class UrlDetail extends React.Component {
         </div>
         <div className="modal">
           <h1>{url.title}</h1>
-          {this.state.owner == false ? 
+          {owner == false ? 
             <button className="favourite" 
             onClick={this.favourite.bind(this, url)}>
               <i className="fa fa-star"></i>{favourite}
