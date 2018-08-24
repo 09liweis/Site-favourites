@@ -66,7 +66,7 @@ class UrlDetail extends React.Component {
     console.log(e);
   }
   render () {
-    const {url, owner, users} = this.state;
+    const {url, owner, users, tags} = this.state;
     var favourite = this.state.favourite ? 'Unfavourite' : 'Favourite';
     return (
       <div className="detail">
@@ -80,7 +80,7 @@ class UrlDetail extends React.Component {
               <i className="fa fa-star"></i>{favourite}
             </button> : ''}
           <div>{users.length} favourite</div>
-          <UrlTags tags={this.state.tags} addTag={this.addTag} />
+          <UrlTags tags={tags} addTag={this.addTag} />
         </div>
       </div>
     );
