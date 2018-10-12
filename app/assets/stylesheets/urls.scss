@@ -23,13 +23,13 @@
 .url__content {
     display: inline-block;
     vertical-align: middle;
-    width: 100%;
+    width: 70%;
 }
 .url__icon {
     max-width: 100%;
 }
 .url__favicon {
-    width: 50%;
+    width: 20%;
     margin-right: 20px;
     margin-bottom: 10px;
 }
@@ -83,6 +83,14 @@
         width: 100%;
     }
     .links {
+        width: 100%;
+    }
+    .url__favicon {
+        width: 50%;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+    .url__content {
         width: 100%;
     }
 }
