@@ -1,4 +1,4 @@
-class Home extends React.Component {
+class Homebk extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -14,4 +14,3 @@ class Home extends React.Component {
         );
     }
 }
-

@@ -1,10 +1,10 @@
-class App extends React.Component {
-    constructor(props) {
-        super(props);
+class Appbk extends React.Component {
+    constructor() {
+        super();
     }
     render() {
         return (
-            <Router history={hashHistory}>
+            <Router history={browserHistory}>
                 <Route path="/" component={Home}></Route>
             </Router>
         );
