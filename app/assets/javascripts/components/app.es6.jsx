@@ -1,4 +1,4 @@
-class App extends React.Component {
+class Appback extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,7 @@ class App extends React.Component {
           : ''
           }
         </nav>
-        {view == 'main' ? <Main displayDetail={this.displayDetail} /> : '' }
+        {view == 'main' ? <Home displayDetail={this.displayDetail} /> : '' }
         {view == 'login' ? <Authentication /> : ''}
         {view == 'user' ? <UserProfile displayDetail={this.displayDetail} /> : '' }
         { this.state.modalOpen ? <UrlDetail url={this.state.detailUrl} closeModal={this.closeModal} /> : ''}
