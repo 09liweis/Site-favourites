@@ -1,28 +1,24 @@
-# Project Overview
+# README
 
-A web application to bookmmark your favourite websites
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Stack Tech
-* Rails 4
-* Reactjs
-* Postgresql
+Things you may want to cover:
 
-Design Idea:
-http://deweyapp.io/
+* Ruby version
 
-Postgresql Start:
-sudo service postgresql start
-psql -c "create database development owner=ubuntu"
+* System dependencies
 
-Rake
-rake db:drop:all
-rake db:create:all
-rake db:migrate
+* Configuration
 
-push to heroku:
-heroku run rake db:migrate
+* Database creation
 
+* Database initialization
 
-Todo:
-* Add React Router https://github.com/reactjs/react-rails/wiki/Using-react-router
-* Redesign single link component
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
