@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   # end
 
   get 'api/v1/bookmarks/', to: 'bookmarks#index'
+  get 'api/v1/bookmark/import', to: 'bookmarks#import'
 end
