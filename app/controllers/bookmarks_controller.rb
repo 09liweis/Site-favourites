@@ -9,7 +9,11 @@ class BookmarksController < ApplicationController
   def import
     # downloading the target web page
     url = params[:url]
-    # render json: { msg: 'URL is required' }, status: :bad_request unless url
+    unless url
+      render json: { msg: 'URL is required' }, status: :bad_request
+      return
+    end
+
     requestOptions = {
       headers: {
         'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
