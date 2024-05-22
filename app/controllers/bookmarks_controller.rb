@@ -24,13 +24,18 @@ class BookmarksController < ApplicationController
     # selecting all HTML product elements
     title = document.css('title')[0].text
     favicon = document.css('link[rel="icon"]')[0]['href']
-    keywords = document.css('meta[name="keywords"]')[0]['content']
+
+    keywords = ''
+    keywordsNodes = document.css('meta[name="keywords"]')[0]
+    keywords = keywordsNodes['content'] if keywordsNodes
+
     description = document.css('meta[name="description"]')[0]['content']
     data = {
       title:,
       favicon:,
       keywords:,
-      description:
+      description:,
+      url:
     }
 
     render json: { msg: 'This is show page', data: }
