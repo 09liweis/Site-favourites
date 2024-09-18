@@ -42,6 +42,6 @@ class BookmarksController < ApplicationController
       url:
     }
 
-    render json: { msg: 'This is show page', data: }
+    render json: { msg: 'Got site data', data: }
   end
 end
