@@ -34,7 +34,7 @@ class BookmarksController < ApplicationController
     description = ''
     descriptionNodes = document.css('meta[name="description"]')[0]
     description = descriptionNodes['content'] if descriptionNodes
-    data = {
+    bookmark = {
       title:,
       favicon:,
       keywords:,
@@ -42,6 +42,6 @@ class BookmarksController < ApplicationController
       url:
     }
 
-    render json: { msg: 'Got site data', data: }
+    render json: { msg: 'Got site data', bookmark: }
   end
 end
