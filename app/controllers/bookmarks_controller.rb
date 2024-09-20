@@ -1,6 +1,15 @@
 require 'httparty'
 require 'nokogiri'
 
+def get_url_response(url)
+  requestOptions = {
+    headers: {
+      'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    }
+  }
+  HTTParty.get(url, requestOptions)
+end
+
 class BookmarksController < ApplicationController
   def index
     render json: []
@@ -14,12 +23,7 @@ class BookmarksController < ApplicationController
       return
     end
 
-    requestOptions = {
-      headers: {
-        'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
-      }
-    }
-    response = HTTParty.get(url, requestOptions)
+    response = get_url_response(url)
     document = Nokogiri::HTML(response.body)
     # selecting all HTML product elements
     title = document.css('title')[0].text
