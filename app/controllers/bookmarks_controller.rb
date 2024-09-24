@@ -12,7 +12,7 @@ end
 
 class BookmarksController < ApplicationController
   def index
-    render json: []
+    render json: { bookmarks: [] }
   end
 
   def import
